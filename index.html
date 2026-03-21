@@ -977,27 +977,166 @@
 
 <hr class="sep">
 
-<div class="media-wrap">
-  <div class="media-collage">
-    <div class="media-card">
-      <div class="source">Product Hunt</div>
-      <p>"Finally a habit tracker that doesn't want my email address. The localStorage-only approach is exactly what privacy-conscious users have been waiting for."</p>
+<!-- ============================================
+     TRIBUTE SECTION     
+     ============================================ -->
+
+<style>
+  .tribute-wrap {
+    padding: 80px 60px;
+    background: linear-gradient(160deg, #f0fdf4 0%, #ffffff 60%);
+    border-bottom: 1px solid var(--proton-border);
+  }
+
+  .tribute-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1.2fr;
+    gap: 80px; align-items: center;
+  }
+
+  .tribute-photo-col { display: flex; flex-direction: column; align-items: center; gap: 20px; }
+
+  .tribute-photo-frame {
+    position: relative; width: 220px; height: 220px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--ha-green), #16a34a, #15803d);
+    padding: 4px;
+    box-shadow: 0 20px 60px rgba(34,197,94,0.2);
+  }
+
+  .tribute-photo-frame img {
+    width: 100%; height: 100%;
+    border-radius: 50%; object-fit: cover;
+    object-position: top center;
+    display: block; background: #f0fdf4;
+  }
+
+  .tribute-photo-badge {
+    position: absolute; bottom: 8px; right: 8px;
+    background: white; border-radius: 50%;
+    width: 44px; height: 44px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px; box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    border: 2px solid var(--proton-border);
+  }
+
+  .tribute-name {
+    font-size: 18px; font-weight: 700; color: var(--proton-text);
+    text-align: center; letter-spacing: -0.3px;
+  }
+
+  .tribute-name a {
+    color: var(--ha-green); text-decoration: none;
+    transition: opacity 0.2s;
+  }
+  .tribute-name a:hover { opacity: 0.75; }
+
+  .tribute-sub {
+    font-size: 13px; color: var(--proton-muted);
+    text-align: center; margin-top: -12px;
+  }
+
+  .tribute-content {}
+
+  .tribute-eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: #f0fdf4; border: 1px solid #bbf7d0;
+    border-radius: 50px; padding: 5px 14px;
+    font-size: 12px; font-weight: 700; color: #15803d;
+    margin-bottom: 20px; letter-spacing: 0.2px;
+  }
+
+  .tribute-content h2 {
+    font-size: clamp(26px, 3vw, 38px); font-weight: 700;
+    line-height: 1.2; letter-spacing: -0.8px;
+    color: var(--proton-text); margin-bottom: 20px;
+  }
+
+  .tribute-content h2 em {
+    font-style: normal; color: var(--ha-green);
+  }
+
+  .tribute-content p {
+    font-size: 15px; color: var(--proton-muted);
+    line-height: 1.75; margin-bottom: 16px;
+  }
+
+  .tribute-content p:last-of-type { margin-bottom: 24px; }
+
+  .tribute-link {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--ha-green); color: white;
+    font-size: 14px; font-weight: 600;
+    padding: 10px 22px; border-radius: 50px;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+    box-shadow: 0 4px 14px rgba(34,197,94,0.3);
+  }
+  .tribute-link:hover { background: #16a34a; transform: translateY(-1px); }
+
+  .tribute-link-ghost {
+    display: inline-flex; align-items: center; gap: 6px;
+    color: var(--proton-purple); font-size: 14px; font-weight: 600;
+    text-decoration: none; margin-left: 16px;
+    transition: gap 0.2s;
+  }
+  .tribute-link-ghost:hover { gap: 10px; }
+
+  @media (max-width: 960px) {
+    .tribute-inner { grid-template-columns: 1fr; gap: 40px; }
+    .tribute-wrap { padding: 60px 24px; }
+    .tribute-photo-col { flex-direction: row; justify-content: flex-start; align-items: center; gap: 20px; }
+    .tribute-photo-frame { width: 80px; height: 80px; flex-shrink: 0; }
+    .tribute-photo-badge { width: 26px; height: 26px; font-size: 13px; bottom: 2px; right: 2px; }
+    .tribute-name { font-size: 15px; text-align: left; }
+    .tribute-sub { text-align: left; margin-top: 2px; }
+  }
+</style>
+
+<div class="tribute-wrap">
+  <div class="tribute-inner">
+
+    <div class="tribute-photo-col">
+      <div class="tribute-photo-frame">
+        <img
+          src="https://aliabdaal.com/wp-content/uploads/2024/09/hero-ali.png"
+          alt="Ali Abdaal — productivity YouTuber and author"
+          loading="lazy"
+        >
+        <span class="tribute-photo-badge">💡</span>
+      </div>
+      <div class="tribute-name">
+        <a href="https://aliabdaal.com/" target="_blank" rel="noopener noreferrer">Ali Abdaal</a>
+      </div>
+      <div class="tribute-sub">Former Doctor · YouTuber · Author</div>
     </div>
-    <div class="media-card">
-      <div class="source">Hacker News</div>
-      <p>"Love the simplicity. Monthly grid, daily scores, export to JSON. It does exactly what it needs to and nothing more. The weight tracker row is a nice touch."</p>
+
+    <div class="tribute-content">
+      <div class="tribute-eyebrow">✦ The inspiration behind this app</div>
+      <h2>Built on an idea from <em>Ali Abdaal's</em> habit tracking spreadsheet</h2>
+      <p>
+        Habit Ally started as a browser-based reimagining of Ali's Google Sheets habit tracker, the one he shared on YouTube that showed how a simple monthly grid with daily check-ins could be genuinely transformative for building consistency.
+      </p>
+      <p>
+        His core idea was brilliant: lay out an entire month at a glance, check habits daily, and let the visual pattern do the motivating. We took that same philosophy and built it into a private offline-first web app.
+      </p>
+      <p>
+        If you haven't discovered Ali's work on productivity his channel and book are genuinely worth your time.
+      </p>
+      <div>
+        <a href="https://www.youtube.com/channel/UCoOae5nYA7VqaXzerajD0lg" target="_blank" rel="noopener noreferrer" class="tribute-link">
+          YouTube channel
+        </a>
+      </div>
     </div>
-    <div class="media-card" style="background:var(--proton-bg-soft);">
-      <div class="source" style="color:var(--ha-green);">Reddit · r/productivity</div>
-      <p>"Been using this for three months. The emoji legend per day (🌱🌳🍎) is weirdly motivating. The export feature saved me when I switched browsers."</p>
-    </div>
-  </div>
-  <div>
-    <h2 style="font-size:38px;font-weight:700;letter-spacing:-0.8px;margin-bottom:20px;">Privacy for a better habit practice</h2>
-    <p style="font-size:15px;color:var(--proton-muted);margin-bottom:16px;line-height:1.7;">We believe your habit data is deeply personal — it reflects your health, discipline, and daily life. That data should never be on anyone else's server, full stop.</p>
-    <p style="font-size:15px;color:var(--proton-muted);margin-bottom:28px;line-height:1.7;">Habit Ally is free because there's nothing to monetize. No users to retain, no data to sell, no subscription to renew. Just a tool that works for you.</p>
+
   </div>
 </div>
+<hr class="sep">
+
+<!-- PASTE THE TRIBUTE BLOCK HERE -->
+
+<div id="about" class="about-wrap">
 
 <hr class="sep">
 

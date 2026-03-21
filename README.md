@@ -9,7 +9,7 @@
 [![No Backend](https://img.shields.io/badge/Backend-None-slate?style=for-the-badge)](#)
 [![Privacy First](https://img.shields.io/badge/Data-100%25%20Local-6366f1?style=for-the-badge&logo=shieldsdotio&logoColor=white)](#privacy)
 
-![Main Site Thumbnail](site.webp) 
+![Main Site Thumbnail](/site.webp) 
 
 <br/>
 

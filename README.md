@@ -48,7 +48,6 @@ That's it. No login. No cloud. No nonsense.
 | 💾 **Export / Import** | Download your data as JSON and restore it anytime |
 | 🔒 **100% Private** | Everything stored in `localStorage` — nothing ever sent anywhere |
 | ⌨️ **Keyboard Accessible** | Navigate the entire tracker without touching your mouse |
-| 📱 **Responsive** | Works beautifully on desktop, tablet, and mobile |
 
 ---
 
@@ -87,15 +86,15 @@ git push origin main
 
 ```
 ┌─────────────────────────────────────────────────────┐
-│                    Your Browser                      │
-│                                                      │
+│                    Your Browser                     │
+│                                                     │
 │   index.html  ──────►  Alpine.js (reactive state)   │
-│      │                        │                      │
-│      │                        ▼                      │
-│   Tailwind CSS          localStorage                 │
-│   (styling)          (your private data)             │
-│                                                      │
-│             Zero network requests after load         │
+│      │                        │                     │
+│      │                        ▼                     │
+│   Tailwind CSS          localStorage                │
+│   (styling)          (your private data)            │
+│                                                     │
+│             Zero network requests after load        │
 └─────────────────────────────────────────────────────┘
 ```
 
@@ -116,6 +115,9 @@ habit-ally/
 ├── index.html        ← The entire application (HTML + CSS + JS)
 ├── README.md         ← You are here
 └── LICENSE           ← MIT License
+└── site.webp
+└── privacy-policy.md
+└── terms-of-service.md
 ```
 
 ---
@@ -225,10 +227,10 @@ git push origin feature/your-feature-name
 - [ ] Drag-to-reorder habits
 - [ ] Dark mode
 - [ ] Habit categories / colour tagging
-- [ ] Weekly view
-- [ ] CSV export
+- [ ] 3 day & Weekly view / Mobile responsive
 - [ ] Habit notes / journal per day
 - [ ] PWA / installable offline app
+- [ ] React Native cross platform app
 
 Have an idea? [Open an issue](https://github.com/cyberalliance-in/habit-ally/issues) — we'd love to hear it.
 
@@ -236,7 +238,7 @@ Have an idea? [Open an issue](https://github.com/cyberalliance-in/habit-ally/iss
 
 ## 📄 License
 
-MIT — free to use, fork, and modify. See [LICENSE](LICENSE) for details.
+See [LICENSE](LICENSE) for details.
 
 ---
 
@@ -244,6 +246,6 @@ MIT — free to use, fork, and modify. See [LICENSE](LICENSE) for details.
 
 Built with ❤️ by [Cyber Alliance](https://cyberalliance.in/)
 
-[🌐 Live App](https://habit-ally.cyberalliance.in/app) · [🐛 Report a Bug](https://github.com/cyberalliance-in/habit-ally/issues) · [💡 Request a Feature](https://github.com/cyberalliance-in/habit-ally/issues)
+[🌐 Live App](https://habit-ally.cyberalliance.in/app) · [🐛 Report a Bug](https://github.com/cyberalliance-in/habit-ally/issues)
 
 </div>

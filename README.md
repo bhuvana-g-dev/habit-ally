@@ -9,6 +9,8 @@
 [![No Backend](https://img.shields.io/badge/Backend-None-slate?style=for-the-badge)](#)
 [![Privacy First](https://img.shields.io/badge/Data-100%25%20Local-6366f1?style=for-the-badge&logo=shieldsdotio&logoColor=white)](#privacy)
 
+![Main Site Thumbnail](site.webp) 
+
 <br/>
 
 > *Track what matters. Own your data. Build the life you want — one day at a time.*

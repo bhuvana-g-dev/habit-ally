@@ -5,7 +5,6 @@
 **Master your daily routine — privately, beautifully, for free.**
 
 [![Live App](https://img.shields.io/badge/Live%20App-habit--ally.cyberalliance.in-4ade80?style=for-the-badge&logo=googlechrome&logoColor=white)](https://habit-ally.cyberalliance.in/app)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)](LICENSE)
 [![Made with Alpine.js](https://img.shields.io/badge/Alpine.js-3.x-77c1d2?style=for-the-badge&logo=alpinedotjs&logoColor=white)](https://alpinejs.dev/)
 [![No Backend](https://img.shields.io/badge/Backend-None-slate?style=for-the-badge)](#)
 [![Privacy First](https://img.shields.io/badge/Data-100%25%20Local-6366f1?style=for-the-badge&logo=shieldsdotio&logoColor=white)](#privacy)

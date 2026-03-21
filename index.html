@@ -20,6 +20,8 @@
 <meta property="twitter:description" content="Modern habit tracking with zero data tracking. Just you and your goals.">
 </head>
 
+<body>
+
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -33,7 +35,7 @@
     --proton-bg-soft: #f7f6ff;
     --proton-border: #e8e6f0;
     --font: 'Inter', sans-serif;
-      --ha-green: #22c55e;
+    --ha-green: #22c55e;
     --ha-blue: #3b82f6;
     --ha-amber: #f59e0b;
   }
@@ -88,7 +90,7 @@
     font-size: 14px; font-weight: 600; padding: 10px 20px;
     border-radius: 50px; cursor: pointer;
     transition: background 0.2s, transform 0.1s; font-family: var(--font);
-    white-space: nowrap;
+    white-space: nowrap; text-decoration: none; display: inline-block;
   }
   .btn-primary:hover { background: var(--proton-purple-dark); transform: translateY(-1px); }
 
@@ -102,6 +104,7 @@
     border: 2px solid var(--proton-purple);
     font-size: 15px; font-weight: 600; padding: 12px 24px;
     border-radius: 50px; cursor: pointer; transition: all 0.2s; font-family: var(--font);
+    text-decoration: none; display: inline-block;
   }
   .btn-outline:hover { background: var(--proton-purple); color: white; }
 
@@ -193,14 +196,6 @@
   .feature-mini span.lbl {
     font-size: 12px; font-weight: 500; color: var(--proton-muted);
     text-align: center; line-height: 1.2;
-  }
-
-  .badge-new {
-    position: absolute; top: -6px; right: -6px;
-    background: var(--ha-green); color: white;
-    font-size: 9px; font-weight: 700; padding: 2px 6px;
-    border-radius: 20px; text-transform: uppercase; letter-spacing: 0.3px;
-    border: 2px dashed rgba(255,255,255,0.6);
   }
 
   .trust-bar {
@@ -395,7 +390,7 @@
   .export-btn {
     flex: 1; padding: 8px; border-radius: 8px; border: 1px solid var(--proton-border);
     font-size: 11px; font-weight: 700; cursor: pointer; font-family: var(--font);
-    transition: all 0.15s;
+    transition: all 0.15s; text-decoration: none; text-align: center; display: block;
   }
 
   .export-btn.primary { background: var(--proton-purple); color: white; border-color: var(--proton-purple); }
@@ -434,22 +429,44 @@
     max-width: 800px; margin-left: auto; margin-right: auto;
   }
 
-  .features-wrap { background: var(--proton-bg-soft); padding: 80px 60px; }
-  .features-inner { max-width: 1100px; margin: 0 auto; }
-  .features-inner h2 { font-size: 38px; font-weight: 700; letter-spacing: -0.8px; margin-bottom: 48px; text-align: center; }
-  .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
-  .feature-card h3 { font-size: 20px; font-weight: 700; margin-bottom: 12px; letter-spacing: -0.3px; }
-  .feature-card p  { font-size: 14px; color: var(--proton-muted); line-height: 1.7; margin-bottom: 8px; }
-  .feature-card a  { color: var(--proton-purple); font-size: 14px; font-weight: 600; text-decoration: none; }
-
   .about-wrap { background: var(--proton-bg-soft); padding: 80px 60px; }
-  .about-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+  .about-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
 
   .about-accordion { background: white; border-radius: 16px; overflow: hidden; border: 1px solid var(--proton-border); }
   .accordion-item { border-bottom: 1px solid var(--proton-border); }
   .accordion-item:last-child { border-bottom: none; }
-  .accordion-header { padding: 24px 28px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; font-weight: 700; font-size: 16px; }
-  .accordion-body { padding: 0 28px 24px; font-size: 14px; color: var(--proton-muted); line-height: 1.7; }
+
+  .accordion-header {
+    padding: 24px 28px; display: flex; align-items: center;
+    justify-content: space-between; cursor: pointer;
+    font-weight: 700; font-size: 16px;
+    user-select: none; transition: background 0.15s;
+    list-style: none;
+  }
+  .accordion-header:hover { background: var(--proton-bg-soft); }
+
+  .accordion-icon {
+    color: var(--ha-green); font-size: 20px; font-weight: 400;
+    flex-shrink: 0; transition: transform 0.25s ease;
+    display: inline-block; line-height: 1;
+  }
+
+  .accordion-item.open .accordion-icon { transform: rotate(45deg); }
+
+  .accordion-body {
+    padding: 0 28px;
+    font-size: 14px; color: var(--proton-muted); line-height: 1.7;
+    max-height: 0; overflow: hidden;
+    transition: max-height 0.35s ease, padding 0.25s ease;
+  }
+
+  .accordion-item.open .accordion-body {
+    max-height: 400px;
+    padding: 0 28px 24px;
+  }
+
+  .accordion-body p { margin-bottom: 12px; }
+  .accordion-body p:last-child { margin-bottom: 0; }
 
   .about-visual {
     background: linear-gradient(135deg, #052e16 0%, #14532d 100%);
@@ -472,10 +489,10 @@
 
   .cta-banner h2 { font-size: clamp(28px, 4vw, 48px); font-weight: 700; line-height: 1.2; margin-bottom: 28px; letter-spacing: -0.8px; }
 
-  .btn-white { background: white; color: #16a34a; border: none; font-size: 16px; font-weight: 700; padding: 14px 32px; border-radius: 50px; cursor: pointer; transition: all 0.2s; font-family: var(--font); margin: 6px; }
+  .btn-white { background: white; color: #16a34a; border: none; font-size: 16px; font-weight: 700; padding: 14px 32px; border-radius: 50px; cursor: pointer; transition: all 0.2s; font-family: var(--font); margin: 6px; text-decoration: none; display: inline-block; }
   .btn-white:hover { background: #f0fdf4; transform: translateY(-2px); }
 
-  .btn-outline-white { background: none; color: white; border: 2px solid rgba(255,255,255,0.6); font-size: 16px; font-weight: 700; padding: 14px 32px; border-radius: 50px; cursor: pointer; transition: all 0.2s; font-family: var(--font); margin: 6px; }
+  .btn-outline-white { background: none; color: white; border: 2px solid rgba(255,255,255,0.6); font-size: 16px; font-weight: 700; padding: 14px 32px; border-radius: 50px; cursor: pointer; transition: all 0.2s; font-family: var(--font); margin: 6px; text-decoration: none; display: inline-block; }
   .btn-outline-white:hover { border-color: white; background: rgba(255,255,255,0.1); }
 
   .media-wrap { max-width: 1100px; margin: 0 auto; padding: 80px 60px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
@@ -503,6 +520,7 @@
   .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
   .footer-col ul li a { font-size: 13px; color: var(--proton-muted); text-decoration: none; transition: color 0.2s; }
   .footer-col ul li a:hover { color: var(--ha-green); }
+  .footer-col ul li span { font-size: 13px; color: var(--proton-muted); }
 
   .new-tag { display: inline-block; background: var(--proton-bg-soft); color: var(--proton-purple); font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 20px; border: 1px solid var(--proton-purple); margin-left: 4px; }
 
@@ -527,7 +545,7 @@
     .footer-grid { grid-template-columns: 1fr 1fr; }
     nav { padding: 0 20px; }
     .nav-links { display: none; }
-    .hero, .full-section, .features-wrap, .about-wrap, .media-wrap { padding: 60px 24px; }
+    .hero, .full-section, .about-wrap, .media-wrap { padding: 60px 24px; }
     .section { padding: 60px 24px; }
     footer { padding: 40px 24px; }
     .trust-bar { gap: 28px; padding: 28px 24px; }
@@ -560,7 +578,7 @@
   <p>A habit tracker that lives entirely in your browser</p>
   <div class="hero-btns">
     <a href="app.html" class="btn-primary green btn-large">Open App</a>
-    <a href="#features" class="btn-outline btn-large">See all features</a>
+    <a href="#how-it-works" class="btn-outline btn-large">See all features</a>
   </div>
 
   <div class="features-mini-grid">
@@ -624,14 +642,10 @@
       <li class="product-item">
         <h3>📅 The Habit Grid</h3>
         <p>Each row is a habit, each column is a day. Check off completions with a single click or navigate entirely by keyboard. Scroll through all 28/30/31 days with sticky habit names on the left.</p>
-        <div class="product-item-actions">
-        </div>
       </li>
       <li class="product-item">
         <h3>⚖️ Weight Tracker Row</h3>
         <p>Log your daily weight in kg right inside the habit grid. One unified view for all your daily metrics, no separate app needed.</p>
-        <div class="product-item-actions">
-        </div>
       </li>
     </ul>
   </div>
@@ -742,14 +756,10 @@
       <li class="product-item">
         <h3>📊 Daily Score %</h3>
         <p>Every column automatically calculates a score, the percentage of habits you completed that day. See your best days and your worst in one glance at the footer row.</p>
-        <div class="product-item-actions">
-        </div>
       </li>
       <li class="product-item">
         <h3>🌱 Monthly Average &amp; Legend Icons</h3>
         <p>Each day's column header shows an emoji reflecting your performance, 💨 0%, 🌱 &lt;40%, 🌳 &lt;80%, 🌲 &lt;95%, 🍎 100%. The monthly average card tracks your overall momentum with an animated progress bar.</p>
-        <div class="product-item-actions">
-        </div>
       </li>
     </ul>
   </div>
@@ -801,14 +811,10 @@
       <li class="product-item">
         <h3>💾 Export &amp; Import</h3>
         <p>Download your entire habit history - habits, weights, and all check data as a timestamped JSON file. Import it back any time to restore or migrate between devices.</p>
-        <div class="product-item-actions">
-        </div>
       </li>
       <li class="product-item">
         <h3>🔄 Reset &amp; Fresh Start</h3>
         <p>Want to start over? One-click Reset wipes everything from localStorage after a confirmation prompt. No data lingers, no account to delete, no emails to unsubscribe from.</p>
-        <div class="product-item-actions">
-        </div>
       </li>
     </ul>
   </div>
@@ -844,9 +850,9 @@
 <span class="json-key">&#125;</span>
       </div>
       <div class="export-footer">
-        <a href="#" class="export-btn primary">⬇ Export</a>
-        <a href="#" class="export-btn secondary">⬆ Import</a>
-        <a href="#" class="export-btn danger">↺ Reset</a>
+        <a href="app.html" class="export-btn primary">⬇ Export</a>
+        <a href="app.html" class="export-btn secondary">⬆ Import</a>
+        <a href="app.html" class="export-btn danger">↺ Reset</a>
       </div>
     </div>
   </div>
@@ -861,16 +867,14 @@
       <div style="width:40px;height:40px;background:linear-gradient(135deg,var(--ha-green),#16a34a);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:22px;">🔒</div>
       <strong style="font-size:17px;">localStorage-only architecture</strong>
     </div>
-    <p style="font-size:15px;color:var(--proton-muted);margin-bottom:28px;line-height:1.7;">Habit Ally has no backend, no API, no analytics, no cookies, and no third-party scripts. Your habit data is stored exclusively in your browser's localStorage it never leaves your device under any circumstances.</p>
-    <div style="display:flex;gap:16px;align-items:center;">
-    </div>
+    <p style="font-size:15px;color:var(--proton-muted);margin-bottom:28px;line-height:1.7;">Habit Ally has no backend, no API, no analytics, no cookies, and no third-party scripts. Your habit data is stored exclusively in your browser's localStorage - it never leaves your device under any circumstances.</p>
   </div>
   <div class="mockup-card">
     <div class="mockup-label">Privacy Architecture</div>
     <div class="mockup-tagline">What we collect. (Nothing.)</div>
     <div class="privacy-mockup">
       <div class="privacy-header">
-        <span>🔒 Data flow — Habit Ally</span>
+        <span>🔒 Data flow - Habit Ally</span>
         <span style="background:rgba(255,255,255,0.2);padding:2px 8px;border-radius:10px;font-size:10px;">Verified</span>
       </div>
       <div class="privacy-row">
@@ -914,81 +918,47 @@
 
 <hr class="sep">
 
-<hr class="sep">
-
-<!-- <div class="features-wrap">
-  <div class="features-inner">
-    <h2>Fundamentally different</h2>
-    <div class="features-grid">
-      <div class="feature-card">
-        <h3>Privacy first</h3>
-        <p>Your data never leaves your device. Habit Ally uses localStorage technology to keep your habit history 100% private and offline-capable — no server ever receives your data.</p>
-        <p>We don't sell ads and there's nothing to share. Privacy isn't a policy page, it's the architecture.</p>
-        <a href="#">About our storage model →</a>
-      </div>
-      <div class="feature-card">
-        <h3>Keyboard accessible</h3>
-        <p>Designed for power users who prefer to keep their hands on the keyboard. Navigate your entire daily habit routine without touching the mouse for maximum speed.</p>
-        <p>All checkboxes and inputs are natively focusable and fully operable via keyboard navigation.</p>
-        <a href="#">Keyboard shortcuts →</a>
-      </div>
-      <div class="feature-card">
-        <h3>Export &amp; backup</h3>
-        <p>Download all your data as a timestamped JSON file at any time — habits, weights, and the full check history. Import it back to restore or migrate to a different browser.</p>
-        <p>Your data is portable and human-readable. No lock-in, no proprietary formats, ever.</p>
-        <a href="#">Data portability →</a>
-      </div>
-      <div class="feature-card">
-        <h3>Zero setup, instant start</h3>
-        <p>Open the app and start tracking. Six habits are pre-loaded so you can begin on day one. Add your own, remove ones you don't need, and customize to your routine.</p>
-        <p>No onboarding flow, no profile to fill in, no email confirmation. Just open and track.</p>
-        <a href="#">See default habits →</a>
-      </div>
-      <div class="feature-card">
-        <h3>Monthly navigation</h3>
-        <p>Browse any past month with the ← → navigation buttons. All data is scoped by month, year, and day — so March 2025 and March 2026 are entirely separate records.</p>
-        <p>The current day is always highlighted in blue across the entire grid so you never lose your place.</p>
-        <a href="#">How navigation works →</a>
-      </div>
-      <div class="feature-card">
-        <h3>Free forever</h3>
-        <p>Habit Ally has no paid tier, no premium features, no subscription nag screen. The full product is free because it doesn't cost anything to run — there's no server.</p>
-        <p>The app has no ads and collects no data. Open source on GitHub for anyone to inspect or self-host.</p>
-        <a href="#">View on GitHub →</a>
-      </div>
-    </div>
-  </div>
-</div> -->
-
-<hr class="sep">
-
 <div id="about" class="about-wrap">
   <div class="about-inner">
     <div>
       <div class="about-accordion">
-        <div class="accordion-item">
-          <div class="accordion-header">
+
+        <!-- Item 1 -->
+        <div class="accordion-item open">
+          <div class="accordion-header" role="button" aria-expanded="true" tabindex="0">
             <span>Why we built Habit Ally</span>
-            <span style="color:var(--ha-green);font-size:20px;">−</span>
+            <span class="accordion-icon">+</span>
           </div>
           <div class="accordion-body">
-            <p>Most habit trackers require an account, sync your data to a server, and monetize through subscriptions or advertising. We wanted something different — a tool that respects your data, works offline, and never asks you to log in.</p>
+            <p>Most habit trackers require an account, sync your data to a server, and monetize through subscriptions or advertising. We wanted something different - a tool that respects your data, works offline, and never asks you to log in.</p>
             <p>Habit Ally is the result: a fully private, browser-based habit tracker that stores everything in localStorage. No backend, no cost to run, no incentive to monetize your habits.</p>
-            <a href="#" class="link-arrow" style="margin-top:12px;display:inline-flex;">Read the full story →</a>
           </div>
         </div>
+
+        <!-- Item 2 -->
         <div class="accordion-item">
-          <div class="accordion-header">
-            <span>Who Built Habit Ally</span>
-            <span style="color:var(--ha-green);font-size:20px;">+</span>
+          <div class="accordion-header" role="button" aria-expanded="false" tabindex="0">
+            <span>Who built Habit Ally?</span>
+            <span class="accordion-icon">+</span>
+          </div>
+          <div class="accordion-body">
+            <p>Habit Ally was built by <strong><a href="https://cyberalliance.in/" target="_blank" rel="noopener noreferrer" class="link-arrow" style="display:inline;">Cyber Alliance India</a></strong> - a web development and cybersecurity collective focused on building privacy-first, open-source tools for everyday users.</p>
+            <p>We believe that useful software doesn't need to harvest your data. Visit us at <a href="https://cyberalliance.in/" target="_blank" rel="noopener noreferrer" class="link-arrow" style="display:inline;">cyberalliance.in</a> to learn more about who we are and what we stand for.</p>
           </div>
         </div>
+
+        <!-- Item 3 -->
         <div class="accordion-item">
-          <div class="accordion-header">
-            <span>What are some other projects by Habit Ally Developers</span>
-            <span style="color:var(--ha-green);font-size:20px;">+</span>
+          <div class="accordion-header" role="button" aria-expanded="false" tabindex="0">
+            <span>What are some other projects by the developers?</span>
+            <span class="accordion-icon">+</span>
+          </div>
+          <div class="accordion-body">
+            <p>Cyber Alliance India has built a range of open-source and privacy-focused tools. You can explore the full portfolio at <a href="https://cyberalliance.in/portfolio/" target="_blank" rel="noopener noreferrer" class="link-arrow" style="display:inline;">cyberalliance.in/portfolio</a>.</p>
+            <p>From security utilities to productivity tools, the team builds software that puts users - not platforms - first.</p>
           </div>
         </div>
+
       </div>
     </div>
     <div class="about-visual">
@@ -1011,7 +981,7 @@
   <div class="media-collage">
     <div class="media-card">
       <div class="source">Product Hunt</div>
-      <p>"Finally a habit tracker that doesn't want my email address. The localStorage only approach is exactly what privacy conscious users have been waiting for."</p>
+      <p>"Finally a habit tracker that doesn't want my email address. The localStorage-only approach is exactly what privacy-conscious users have been waiting for."</p>
     </div>
     <div class="media-card">
       <div class="source">Hacker News</div>
@@ -1024,7 +994,7 @@
   </div>
   <div>
     <h2 style="font-size:38px;font-weight:700;letter-spacing:-0.8px;margin-bottom:20px;">Privacy for a better habit practice</h2>
-    <p style="font-size:15px;color:var(--proton-muted);margin-bottom:16px;line-height:1.7;">We believe your habit data is deeply personal it reflects your health, discipline, and daily life. That data should never be on anyone else's server, full stop.</p>
+    <p style="font-size:15px;color:var(--proton-muted);margin-bottom:16px;line-height:1.7;">We believe your habit data is deeply personal — it reflects your health, discipline, and daily life. That data should never be on anyone else's server, full stop.</p>
     <p style="font-size:15px;color:var(--proton-muted);margin-bottom:28px;line-height:1.7;">Habit Ally is free because there's nothing to monetize. No users to retain, no data to sell, no subscription to renew. Just a tool that works for you.</p>
   </div>
 </div>
@@ -1039,19 +1009,6 @@
   </div>
 </div>
 
-<!-- <div style="max-width:1100px;margin:0 auto;padding:80px 60px;">
-  <div style="display:flex;justify-content:center;flex-wrap:wrap;gap:16px;margin-bottom:40px;">
-    <div style="font-size:18px;font-weight:900;color:#ccc;display:flex;align-items:center;">Product Hunt</div>
-    <div style="font-size:18px;font-weight:900;color:#ccc;display:flex;align-items:center;">Hacker News</div>
-    <div style="font-size:18px;font-weight:900;color:#ccc;display:flex;align-items:center;">r/productivity</div>
-  </div>
-  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;">
-    <div><p style="font-size:14px;color:var(--proton-muted);line-height:1.7;">The privacy-first approach is Habit Ally's biggest differentiator. By keeping all data in localStorage and skipping the backend entirely, it stays ahead of every privacy concern.</p></div>
-    <div><p style="font-size:14px;color:var(--proton-muted);line-height:1.7;">What started as a personal side project has become a go-to recommendation in productivity communities — the vanguard of a movement that puts user data sovereignty first.</p></div>
-    <div><p style="font-size:14px;color:var(--proton-muted);line-height:1.7;">Because of its open-source codebase, transparent localStorage architecture, and zero tracking, Habit Ally could be the best alternative to subscription-based habit apps on the market.</p></div>
-  </div>
-</div> -->
-
 <hr class="sep">
 
 <footer>
@@ -1063,63 +1020,98 @@
       <div class="tagline">Privacy by default</div>
       <div class="footer-addr">
         Open source · Free forever<br>
-        No account · No server
+        No account · No server<br><br>
+        Built by <a href="https://cyberalliance.in/" target="_blank" rel="noopener noreferrer" style="color:var(--ha-green);text-decoration:none;font-weight:600;">Cyber Alliance India</a>
       </div>
     </div>
     <div class="footer-col">
       <h4>Features</h4>
       <div class="footer-col-inner">
         <ul>
-          <li>Habit Grid</a></li>
-          <li>Weight Tracker</a></li>
-          <li>Daily Scores</a></li>
-          <li>Monthly Average</a></li>
-          <li>Legend Icons</a></li>
-          <li>Add Habits</a></li>
-          <li>Remove Habits</a></li>
-          <li>Month Navigation</a></li>
+          <li><span>Habit Grid</span></li>
+          <li><span>Weight Tracker</span></li>
+          <li><span>Daily Scores</span></li>
+          <li><span>Monthly Average</span></li>
+          <li><span>Legend Icons</span></li>
+          <li><span>Add Habits</span></li>
+          <li><span>Remove Habits</span></li>
+          <li><span>Month Navigation</span></li>
         </ul>
         <ul>
-          <li>Export JSON</a></li>
-          <li>Import JSON</a></li>
-          <li>Reset Data</a></li>
-          <li>Offline Mode</a></li>
-          <li>Auto-save</a></li>
-          <li>Keyboard Access</a></li>
+          <li><span>Export JSON</span></li>
+          <li><span>Import JSON</span></li>
+          <li><span>Reset Data</span></li>
+          <li><span>Offline Mode</span></li>
+          <li><span>Auto-save</span></li>
+          <li><span>Keyboard Access</span></li>
         </ul>
       </div>
     </div>
     <div class="footer-col">
       <h4>Privacy</h4>
       <ul>
-        <li>localStorage model</a></li>
-        <li>No tracking</a></li>
-        <li>No cookies</a></li>
-        <li>Offline capable</a></li>
-        <li>Data portability</a></li>
-        <li>Open source</a></li>
+        <li><span>localStorage model</span></li>
+        <li><span>No tracking</span></li>
+        <li><span>No cookies</span></li>
+        <li><span>Offline capable</span></li>
+        <li><span>Data portability</span></li>
+        <li><span>Open source</span></li>
       </ul>
     </div>
     <div class="footer-col">
       <h4>Resources</h4>
       <ul>
-        <li><a href="https://github.com/godarayudhvir/habit-ally">GitHub Repo</a></li>
-        <li><a href="https://github.com/godarayudhvir/habit-ally/activity">Changelog</a></li>
-        <li><a href="https://github.com/godarayudhvir/habit-ally/issues">Report a bug</a></li>
-        <li><a href="http://127.0.0.1:5500/index.html#about">About</a></li>
+        <li><a href="https://github.com/godarayudhvir/habit-ally" target="_blank" rel="noopener noreferrer">GitHub Repo</a></li>
+        <li><a href="https://github.com/godarayudhvir/habit-ally/activity" target="_blank" rel="noopener noreferrer">Changelog</a></li>
+        <li><a href="https://github.com/godarayudhvir/habit-ally/issues" target="_blank" rel="noopener noreferrer">Report a bug</a></li>
+        <li><a href="https://cyberalliance.in/" target="_blank" rel="noopener noreferrer">Cyber Alliance India</a></li>
+        <li><a href="https://cyberalliance.in/portfolio/" target="_blank" rel="noopener noreferrer">Our Portfolio</a></li>
+        <li><a href="#about">About</a></li>
       </ul>
     </div>
   </div>
 
   <div class="footer-bottom">
     <div class="footer-bottom-links">
-      <a href="privacy-policy.md">Privacy Policy</a>
-      <a href="terms-of-service.md">Terms</a>
-      <a href="license.md">Open Source Licenses</a>
+      <a href="https://cyberalliance.in/" target="_blank" rel="noopener noreferrer">Cyber Alliance India</a>
+      <a href="https://cyberalliance.in/portfolio/" target="_blank" rel="noopener noreferrer">Portfolio</a>
+      <a href="https://github.com/godarayudhvir/habit-ally" target="_blank" rel="noopener noreferrer">Open Source</a>
     </div>
     <div style="display:flex;gap:20px;align-items:center;flex-wrap:wrap;">
-      <span>Made with ❤️ · Free forever</span>
+      <span>Made with ❤️ by <a href="https://cyberalliance.in/" target="_blank" rel="noopener noreferrer" style="color:var(--ha-green);text-decoration:none;font-weight:600;">Cyber Alliance India</a> · Free forever</span>
     </div>
   </div>
 </footer>
+
+<script>
+  // Accordion functionality
+  document.querySelectorAll('.accordion-header').forEach(function(header) {
+    header.addEventListener('click', function() {
+      var item = this.closest('.accordion-item');
+      var isOpen = item.classList.contains('open');
+
+      // Close all items
+      document.querySelectorAll('.accordion-item').forEach(function(i) {
+        i.classList.remove('open');
+        i.querySelector('.accordion-header').setAttribute('aria-expanded', 'false');
+      });
+
+      // Open clicked item if it was closed
+      if (!isOpen) {
+        item.classList.add('open');
+        this.setAttribute('aria-expanded', 'true');
+      }
+    });
+
+    // Keyboard accessibility: Enter and Space trigger click
+    header.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        this.click();
+      }
+    });
+  });
+</script>
+
+</body>
 </html>
